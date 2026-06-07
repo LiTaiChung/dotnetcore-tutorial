@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-labelledby="title desc">
+  <title id="title">Web API flow</title>
+  <desc id="desc">A flat illustration of a browser sending requests to an API server.</desc>
+  <rect width="520" height="420" fill="#fff"/>
+  <ellipse cx="260" cy="350" rx="176" ry="28" fill="#e4f4f2"/>
+  <rect x="64" y="112" width="150" height="128" rx="22" fill="#f6fffe" stroke="#80cbc4" stroke-width="4"/>
+  <rect x="88" y="146" width="82" height="12" rx="6" fill="#009286"/>
+  <rect x="88" y="178" width="104" height="12" rx="6" fill="#f4bd36"/>
+  <rect x="88" y="210" width="64" height="12" rx="6" fill="#80cbc4"/>
+  <rect x="330" y="92" width="118" height="178" rx="24" fill="#16354b"/>
+  <rect x="358" y="124" width="62" height="14" rx="7" fill="#80cbc4"/>
+  <rect x="358" y="160" width="62" height="14" rx="7" fill="#f4bd36"/>
+  <rect x="358" y="196" width="62" height="14" rx="7" fill="#fff"/>
+  <path d="M220 166h82" stroke="#009286" stroke-width="10" stroke-linecap="round"/>
+  <path d="M286 148l24 18-24 18" fill="none" stroke="#009286" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M314 226h-82" stroke="#f4bd36" stroke-width="10" stroke-linecap="round"/>
+  <path d="M248 208l-24 18 24 18" fill="none" stroke="#f4bd36" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="252" cy="84" r="34" fill="#fff0bd"/>
+  <circle cx="416" cy="300" r="38" fill="#d9f4f1"/>
+</svg>

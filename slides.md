@@ -3,7 +3,7 @@ theme: light-icons
 colorSchema: light
 layout: image-header-intro
 imageHeader: /dotnet9-header.svg
-imageRight: /static/light-icons-cover.svg
+imageRight: /illustrations/dotnet-hero.svg
 title: .NET 9 從零開始
 info: |
   ## .NET 9 從零開始
@@ -29,6 +29,21 @@ fonts:
   適合第一次接觸 .NET / C# 的後端入門課
 </div>
 
+<div class="cover-illo">
+  <div class="cover-illo-card main">
+    <light-icon icon="device-laptop" size="78px" color="#0e9f9a" />
+  </div>
+  <div class="cover-illo-card side">
+    <light-icon icon="server" size="48px" color="#f3b33d" />
+  </div>
+  <div class="cover-illo-card badge">
+    <light-icon icon="code" size="20px" />
+    .NET 9 Workshop
+  </div>
+  <div class="cover-illo-line one"></div>
+  <div class="cover-illo-line two"></div>
+</div>
+
 <!--
 開場：這堂課假設大家會基本電腦操作，但不假設會 C# 或 .NET。
 目標是讓學生能自己在 VS Code 裡建立、執行、Debug 一個 API。
@@ -37,9 +52,18 @@ fonts:
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/learning-map.svg
 ---
 
 # 今天會學到什麼
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="list-check" /></div>
+  <div class="icon-secondary"><light-icon icon="target" /></div>
+  <div class="icon-tertiary"><light-icon icon="rocket" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 <v-clicks>
 
@@ -57,20 +81,37 @@ left: false
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/learning-map.svg
 ---
 
 # 先釐清名字
 
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="braces" /></div>
+  <div class="icon-secondary"><light-icon icon="stack" /></div>
+  <div class="icon-tertiary"><light-icon icon="sitemap" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Noto Sans TC, Inter, sans-serif", "primaryColor": "#e8fbf8", "primaryTextColor": "#123b4a", "primaryBorderColor": "#0e9f9a", "lineColor": "#80cbc4", "secondaryColor": "#fff8e1", "tertiaryColor": "#f6fffe", "clusterBkg": "#f6fffe", "clusterBorder": "#8bd8d1"}}}%%
 flowchart LR
-  A[C#] --> B[.NET Runtime]
-  C[.NET SDK] --> D[Build / Run / Test / Publish]
-  B --> E[Console App]
-  B --> F[ASP.NET Core Web API]
-  B --> G[Worker Service]
+  A["C#"] --> B[".NET Runtime"]
+  C[".NET SDK"] --> D["Build / Run / Test / Publish"]
+  B --> E["Console App"]
+  B --> F["ASP.NET Core API"]
+  B --> G["Worker Service"]
+
+  classDef language fill:#fff8e1,stroke:#f3b33d,color:#123b4a,stroke-width:2px;
+  classDef platform fill:#e8fbf8,stroke:#0e9f9a,color:#123b4a,stroke-width:2px;
+  classDef output fill:#f6fffe,stroke:#8bd8d1,color:#123b4a,stroke-width:2px;
+  class A,C language;
+  class B,D platform;
+  class E,F,G output;
 ```
 
-<div class="mt-8 grid grid-cols-3 gap-4 text-left text-sm">
+<div class="mt-4 grid grid-cols-3 gap-4 text-left text-sm">
   <div class="rounded border border-gray-300/30 p-4">
     <div class="font-bold">C#</div>
     <div class="opacity-75">程式語言</div>
@@ -92,11 +133,20 @@ flowchart LR
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/tools-setup.svg
 ---
 
 # 開發環境
 
-<div class="grid grid-cols-2 gap-10">
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="device-desktop" /></div>
+  <div class="icon-secondary"><light-icon icon="tools" /></div>
+  <div class="icon-tertiary"><light-icon icon="settings" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+<div class="env-grid grid grid-cols-2 gap-5 text-sm">
 <div>
 
 ### 必裝
@@ -104,6 +154,8 @@ left: false
 - Visual Studio Code
 - .NET 9 SDK
 - VS Code Extension: C# Dev Kit
+
+<div class="env-divider"></div>
 
 ### 建議安裝
 
@@ -122,6 +174,8 @@ dotnet --info
 code --version
 ```
 
+<div class="env-divider"></div>
+
 ### 版本概念
 
 - SDK: 建立與編譯專案
@@ -134,9 +188,18 @@ code --version
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/tools-setup.svg
 ---
 
 # VS Code 裝 Extension
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="plug" /></div>
+  <div class="icon-secondary"><light-icon icon="search" /></div>
+  <div class="icon-tertiary"><light-icon icon="checkbox" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 1. 開啟 VS Code
 2. 左側 Extensions
@@ -160,9 +223,18 @@ C# Dev Kit 會搭配 C# extension，
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/code-console.svg
 ---
 
 # 建立第一個專案
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="folder-plus" /></div>
+  <div class="icon-secondary"><light-icon icon="terminal" /></div>
+  <div class="icon-tertiary"><light-icon icon="caret-right" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ## VS Code 操作
 
@@ -187,9 +259,18 @@ dotnet run
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/code-console.svg
 ---
 
 # Console App 長什麼樣
+
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="terminal-2" /></div>
+  <div class="icon-secondary"><light-icon icon="code" /></div>
+  <div class="icon-tertiary"><light-icon icon="message" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ```csharp [Program.cs]
 Console.WriteLine("Hello, .NET 9!");
@@ -209,9 +290,18 @@ Console.WriteLine("Hello, .NET 9!");
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/code-console.svg
 ---
 
 # 專案檔 csproj
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="file-code" /></div>
+  <div class="icon-secondary"><light-icon icon="settings" /></div>
+  <div class="icon-tertiary"><light-icon icon="shield-check" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ```xml [HelloDotnet.csproj]
 <Project Sdk="Microsoft.NET.Sdk">
@@ -236,11 +326,20 @@ left: false
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/code-console.svg
 ---
 
 # C# 基礎語法
 
-```csharp {all|1-3|5-8|10-14|all}
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="brackets" /></div>
+  <div class="icon-secondary"><light-icon icon="route" /></div>
+  <div class="icon-tertiary"><light-icon icon="checks" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```csharp {all|1-3|5-8|10-13|all}
 string name = "Ada";
 int age = 28;
 bool isDeveloper = true;
@@ -263,11 +362,20 @@ for (int i = 1; i <= 3; i++)
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/code-console.svg
 ---
 
 # 方法與型別
 
-```csharp {all|1-5|7-12|all}
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="math" /></div>
+  <div class="icon-secondary"><light-icon icon="box" /></div>
+  <div class="icon-tertiary"><light-icon icon="calculator" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```csharp {all|1-4|6-7|9-12|all}
 static decimal AddTax(decimal price, decimal taxRate)
 {
     return price * (1 + taxRate);
@@ -293,9 +401,18 @@ public record Product(
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/code-console.svg
 ---
 
 # dotnet CLI 心智模型
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="terminal" /></div>
+  <div class="icon-secondary"><light-icon icon="git-branch" /></div>
+  <div class="icon-tertiary"><light-icon icon="rocket" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ```bash
 dotnet new console -n Demo
@@ -307,12 +424,21 @@ dotnet publish
 ```
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Noto Sans TC, Inter, sans-serif", "primaryColor": "#e8fbf8", "primaryTextColor": "#123b4a", "primaryBorderColor": "#0e9f9a", "lineColor": "#80cbc4", "secondaryColor": "#fff8e1", "tertiaryColor": "#f6fffe"}}}%%
 flowchart LR
-  A[new] --> B[restore]
-  B --> C[build]
-  C --> D[run]
-  C --> E[test]
-  C --> F[publish]
+  A["dotnet new"] --> B["restore"]
+  B --> C["build"]
+  C --> D["run"]
+  C --> E["test"]
+  C --> F["publish"]
+
+  classDef start fill:#fff8e1,stroke:#f3b33d,color:#123b4a,stroke-width:2px;
+  classDef step fill:#e8fbf8,stroke:#0e9f9a,color:#123b4a,stroke-width:2px;
+  classDef finish fill:#f6fffe,stroke:#135483,color:#123b4a,stroke-width:2px;
+  class A start;
+  class B,C,D,E step;
+  class F finish;
+  linkStyle 0,1,2,3,4 stroke:#0e9f9a,stroke-width:3px;
 ```
 
 <div class="mt-4 text-sm opacity-75">
@@ -322,9 +448,18 @@ VS Code extension 很方便，但 CLI 是跨平台、自動化與 CI/CD 的共�
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/web-api.svg
 ---
 
 # 建立 Web API
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="server" /></div>
+  <div class="icon-secondary"><light-icon icon="browser" /></div>
+  <div class="icon-tertiary"><light-icon icon="world" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 <div class="mt-6 text-3xl text-black dark:text-white text-opacity-55 dark:text-opacity-60">
   從會印字，到會回應 HTTP Request
@@ -334,9 +469,18 @@ left: false
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/web-api.svg
 ---
 
 # Web API 專案
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="layout-navbar" /></div>
+  <div class="icon-secondary"><light-icon icon="server" /></div>
+  <div class="icon-tertiary"><light-icon icon="caret-right" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ## VS Code 操作
 
@@ -360,11 +504,20 @@ dotnet run
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/web-api.svg
 ---
 
 # Minimal API
 
-```csharp [Program.cs] {all|1-2|4-6|8-10|12|all}
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="route" /></div>
+  <div class="icon-secondary"><light-icon icon="code" /></div>
+  <div class="icon-tertiary"><light-icon icon="bolt" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```csharp [Program.cs] {all|1-2|4|6|8-9|11|all}
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
@@ -389,16 +542,27 @@ app.Run();
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/web-api.svg
 ---
 
 # HTTP 與路由
 
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="send" /></div>
+  <div class="icon-secondary"><light-icon icon="router" /></div>
+  <div class="icon-tertiary"><light-icon icon="database" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
 ```mermaid
+%%{init: {"theme": "base", "sequence": {"mirrorActors": false, "showSequenceNumbers": true}, "themeVariables": {"fontFamily": "Noto Sans TC, Inter, sans-serif", "actorBkg": "#e8fbf8", "actorBorder": "#0e9f9a", "actorTextColor": "#123b4a", "activationBkgColor": "#fff8e1", "activationBorderColor": "#f3b33d", "signalColor": "#0e9f9a", "signalTextColor": "#123b4a", "noteBkgColor": "#f6fffe", "noteBorderColor": "#8bd8d1"}}}%%
 sequenceDiagram
-  participant Browser
+  autonumber
+  participant Client as Client
   participant API as ASP.NET Core API
-  Browser->>API: GET /todos/1
-  API-->>Browser: 200 OK + JSON
+  Client->>+API: GET /todos/1
+  API-->>-Client: 200 OK + JSON
 ```
 
 | 動詞 | 常見用途 | 範例 |
@@ -411,11 +575,20 @@ sequenceDiagram
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/web-api.svg
 ---
 
 # 建立 Todo Endpoint
 
-```csharp {all|1|3-8|10-11|13-15|all}
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="clipboard-list" /></div>
+  <div class="icon-secondary"><light-icon icon="circle-plus" /></div>
+  <div class="icon-tertiary"><light-icon icon="circle-check" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```csharp {all|1|3|5-10|12-13|all}
 var todos = new List<TodoItem>();
 
 app.MapGet("/todos", () => todos);
@@ -438,9 +611,18 @@ public record CreateTodoRequest(string Title);
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/web-api.svg
 ---
 
 # 用 OpenAPI 測試
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="file-text" /></div>
+  <div class="icon-secondary"><light-icon icon="browser" /></div>
+  <div class="icon-tertiary"><light-icon icon="checks" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 `.NET 9` 的 ASP.NET Core 可內建產生 OpenAPI 文件。
 
@@ -464,9 +646,18 @@ if (app.Environment.IsDevelopment())
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/code-console.svg
 ---
 
 # VS Code Debug
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="bug" /></div>
+  <div class="icon-secondary"><light-icon icon="crosshair" /></div>
+  <div class="icon-tertiary"><light-icon icon="activity" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 1. 在 `Program.cs` 左側點一下，加入 breakpoint
 2. 開啟 Run and Debug
@@ -474,7 +665,7 @@ left: false
 4. 按 Start Debugging
 5. 發送 request，觀察變數與呼叫堆疊
 
-```csharp {2}
+```csharp [Program.cs] {all|3|4|5|all}
 app.MapPost("/todos", (CreateTodoRequest request) =>
 {
     var todo = new TodoItem(todos.Count + 1, request.Title, false);
@@ -486,9 +677,18 @@ app.MapPost("/todos", (CreateTodoRequest request) =>
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/tools-setup.svg
 ---
 
 # appsettings.json
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="file-text" /></div>
+  <div class="icon-secondary"><light-icon icon="adjustments-horizontal" /></div>
+  <div class="icon-tertiary"><light-icon icon="lock" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ```json [appsettings.Development.json]
 {
@@ -511,38 +711,101 @@ left: false
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/web-api.svg
 ---
 
-# 相依性注入 DI
+# 什麼是相依性注入 DI
 
-```csharp {all|1|3-11|13|all}
-builder.Services.AddSingleton<TodoStore>();
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="plug" /></div>
+  <div class="icon-secondary"><light-icon icon="sitemap" /></div>
+  <div class="icon-tertiary"><light-icon icon="box" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
-public class TodoStore
+<div class="grid grid-cols-2 gap-5 text-sm">
+  <div class="rounded border border-gray-300/30 p-4">
+    <h3>官方定義</h3>
+    <p class="opacity-75">ASP.NET Core 支援 DI 設計模式，用來在類別與相依性之間達成控制權反轉。</p>
+  </div>
+  <div class="rounded border border-gray-300/30 p-4">
+    <h3>相依物件</h3>
+    <p class="opacity-75">一個物件需要另一個物件才能工作時，後者就是它的相依性。</p>
+  </div>
+</div>
+
+<div class="mt-5 grid grid-cols-2 gap-5 text-sm">
+  <div class="rounded border border-gray-300/30 p-4">
+    <h3>直接 new 的問題</h3>
+    <ul>
+      <li>替換實作要修改使用類別</li>
+      <li>相依性的設定散落各處</li>
+      <li>單元測試變困難</li>
+    </ul>
+  </div>
+  <div class="rounded border border-gray-300/30 p-4">
+    <h3>DI 的做法</h3>
+    <ul>
+      <li>用介面或基底類別抽象化</li>
+      <li>把服務註冊到 DI 容器</li>
+      <li>由框架建立、注入和處置服務</li>
+    </ul>
+  </div>
+</div>
+
+---
+layout: dynamic-image
+left: false
+image: /illustrations/web-api.svg
+---
+
+# DI 在 ASP.NET Core 裡怎麼用
+
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="plug" /></div>
+  <div class="icon-secondary"><light-icon icon="sitemap" /></div>
+  <div class="icon-tertiary"><light-icon icon="box" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```csharp {all|1|3-7|9|all}
+builder.Services.AddScoped<IMyDependency, MyDependency>();
+
+public class MyService(IMyDependency dependency)
 {
-    private readonly List<TodoItem> _todos = [];
-
-    public IReadOnlyList<TodoItem> GetAll() => _todos;
-    public void Add(TodoItem item) => _todos.Add(item);
+    public void WriteMessage() =>
+        dependency.WriteMessage("Service is resolved");
 }
 
-app.MapGet("/todos", (TodoStore store) => store.GetAll());
+builder.Services.AddSingleton<MyCache>();
 ```
 
 <v-clicks>
 
-- 服務在 `builder.Services` 註冊
-- Endpoint 需要什麼，ASP.NET Core 會注入
-- 這讓測試與替換實作更容易
+- 服務通常在 `Program.cs` 透過 `builder.Services` 註冊
+- 容器解析相依性圖形，回傳完整建立好的服務
+- `AddScoped` 常用於 request 範圍的服務
+- `AddSingleton` 建立後會重複使用同一個實例
 
 </v-clicks>
 
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/testing-publish.svg
 ---
 
 # 加 NuGet 套件
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="package" /></div>
+  <div class="icon-secondary"><light-icon icon="download" /></div>
+  <div class="icon-tertiary"><light-icon icon="brand-npm" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ## VS Code 操作
 
@@ -565,9 +828,18 @@ NuGet 是 .NET 的套件生態系，類似 JavaScript 的 npm。
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/testing-publish.svg
 ---
 
 # 第一個測試
+
+<div class="slide-illo small">
+  <div class="icon-primary"><light-icon icon="test-pipe" /></div>
+  <div class="icon-secondary"><light-icon icon="checkbox" /></div>
+  <div class="icon-tertiary"><light-icon icon="flask" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ```bash
 dotnet new xunit -n TodoApi.Tests
@@ -595,9 +867,18 @@ C# Dev Kit 會在 Testing 面板顯示測試，能單獨執行或 Debug。
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/learning-map.svg
 ---
 
 # Solution 管理多專案
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="folders" /></div>
+  <div class="icon-secondary"><light-icon icon="git-merge" /></div>
+  <div class="icon-tertiary"><light-icon icon="sitemap" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ```bash
 dotnet new sln -n DotnetLearning
@@ -606,11 +887,24 @@ dotnet sln add TodoApi.Tests/TodoApi.Tests.csproj
 ```
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Noto Sans TC, Inter, sans-serif", "primaryColor": "#e8fbf8", "primaryTextColor": "#123b4a", "primaryBorderColor": "#0e9f9a", "lineColor": "#80cbc4", "secondaryColor": "#fff8e1", "tertiaryColor": "#f6fffe"}}}%%
 flowchart TB
-  S[DotnetLearning.sln]
-  S --> A[TodoApi]
-  S --> T[TodoApi.Tests]
-  T --> A
+  S["DotnetLearning.sln"]
+  A["TodoApi"]
+  T["TodoApi.Tests"]
+
+  S --> A
+  S --> T
+  T -. reference .-> A
+
+  classDef solution fill:#fff8e1,stroke:#f3b33d,color:#123b4a,stroke-width:2px;
+  classDef project fill:#e8fbf8,stroke:#0e9f9a,color:#123b4a,stroke-width:2px;
+  classDef test fill:#f6fffe,stroke:#135483,color:#123b4a,stroke-width:2px;
+  class S solution;
+  class A project;
+  class T test;
+  linkStyle 0,1 stroke:#0e9f9a,stroke-width:3px;
+  linkStyle 2 stroke:#135483,stroke-width:3px,stroke-dasharray: 6 5;
 ```
 
 <div class="mt-6 text-sm opacity-75">
@@ -620,9 +914,18 @@ Solution 是工作區清單；大型專案通常會拆成 API、Domain、Infrast
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/testing-publish.svg
 ---
 
 # 發佈 Publish
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="rocket" /></div>
+  <div class="icon-secondary"><light-icon icon="cloud-upload" /></div>
+  <div class="icon-tertiary"><light-icon icon="package" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 ```bash
 dotnet publish -c Release -o ./publish
@@ -646,9 +949,18 @@ dotnet publish -c Release -o ./publish
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/tools-setup.svg
 ---
 
 # 常見錯誤排查
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="alert-triangle" /></div>
+  <div class="icon-secondary"><light-icon icon="tool" /></div>
+  <div class="icon-tertiary"><light-icon icon="shield-check" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 | 狀況 | 檢查 |
 | --- | --- |
@@ -661,9 +973,18 @@ left: false
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/learning-map.svg
 ---
 
 # 練習路線
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="map" /></div>
+  <div class="icon-secondary"><light-icon icon="target" /></div>
+  <div class="icon-tertiary"><light-icon icon="award" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 <v-clicks>
 
@@ -680,18 +1001,38 @@ left: false
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/learning-map.svg
 ---
 
 # 推薦學習順序
 
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="calendar-event" /></div>
+  <div class="icon-secondary"><light-icon icon="route" /></div>
+  <div class="icon-tertiary"><light-icon icon="book" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Noto Sans TC, Inter, sans-serif", "primaryColor": "#e8fbf8", "primaryTextColor": "#123b4a", "primaryBorderColor": "#0e9f9a", "lineColor": "#80cbc4", "secondaryColor": "#fff8e1", "tertiaryColor": "#f6fffe"}}}%%
 flowchart LR
-  A[C# 基礎] --> B[.NET CLI]
-  B --> C[ASP.NET Core]
-  C --> D[資料庫 / EF Core]
-  C --> E[測試]
-  D --> F[部署]
+  A["C# 基礎"] --> B[".NET CLI"]
+  B --> C["ASP.NET Core"]
+  C --> D["EF Core"]
+  C --> E["測試"]
+  D --> F["部署"]
   E --> F
+
+  classDef foundation fill:#fff8e1,stroke:#f3b33d,color:#123b4a,stroke-width:2px;
+  classDef core fill:#e8fbf8,stroke:#0e9f9a,color:#123b4a,stroke-width:2px;
+  classDef branch fill:#f6fffe,stroke:#8bd8d1,color:#123b4a,stroke-width:2px;
+  classDef finish fill:#eaf2ff,stroke:#135483,color:#123b4a,stroke-width:2px;
+  class A foundation;
+  class B,C core;
+  class D,E branch;
+  class F finish;
+  linkStyle 0,1,2,3,4,5 stroke:#0e9f9a,stroke-width:3px;
 ```
 
 <div class="mt-8 text-left">
@@ -706,9 +1047,18 @@ flowchart LR
 ---
 layout: dynamic-image
 left: false
+image: /illustrations/learning-map.svg
 ---
 
 # 參考資料
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="book" /></div>
+  <div class="icon-secondary"><light-icon icon="external-link" /></div>
+  <div class="icon-tertiary"><light-icon icon="bookmark" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 - Microsoft Learn: .NET 9 新功能
 - Microsoft Learn: ASP.NET Core 9 新功能
@@ -722,10 +1072,18 @@ left: false
 
 ---
 layout: center-image
-image: /static/light-icons-illustration.svg
+image: /illustrations/dotnet-hero.svg
 ---
 
 # 下一步
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="rocket" /></div>
+  <div class="icon-secondary"><light-icon icon="device-laptop" /></div>
+  <div class="icon-tertiary"><light-icon icon="circle-check" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
 
 打開 VS Code，建立你的第一個 `TodoApi`
 

@@ -22,6 +22,177 @@ body,
   display: none !important;
 }
 
+.slide-illo {
+  display: none !important;
+}
+
+.cover-illo {
+  display: none !important;
+}
+
+.slidev-layout:has(.slide-illo) pre,
+.slidev-layout:has(.slide-illo) table,
+.slidev-layout:has(.slide-illo) .grid {
+  max-width: none !important;
+}
+
+.slidev-layout img {
+  user-select: none;
+}
+
+.intro [style*="background-image"] {
+  background-color: #fff !important;
+  background-size: contain !important;
+}
+
+.cover-illo {
+  position: relative;
+  width: 24rem;
+  min-height: 12rem;
+  margin-top: 2.5rem;
+}
+
+.cover-illo::before,
+.slide-illo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 18% 22%, rgb(243 179 61 / 0.24), transparent 28%),
+    radial-gradient(circle at 82% 76%, rgb(14 159 154 / 0.2), transparent 30%),
+    linear-gradient(135deg, rgb(14 159 154 / 0.08), rgb(243 179 61 / 0.1));
+}
+
+.cover-illo-card {
+  position: absolute;
+  border: 1px solid rgb(14 159 154 / 0.18);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.9);
+  box-shadow: 0 18px 38px rgb(19 84 131 / 0.12);
+}
+
+.cover-illo-card.main {
+  left: 2rem;
+  top: 1.2rem;
+  display: grid;
+  width: 13rem;
+  height: 7.5rem;
+  place-items: center;
+}
+
+.cover-illo-card.side {
+  right: 1.4rem;
+  top: 3.4rem;
+  display: grid;
+  width: 7rem;
+  height: 5.4rem;
+  place-items: center;
+}
+
+.cover-illo-card.badge {
+  bottom: 1.15rem;
+  left: 5.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.75rem;
+  color: #0d827e;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.cover-illo-line,
+.slide-illo-line {
+  position: absolute;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: rgb(14 159 154 / 0.16);
+}
+
+.cover-illo-line.one {
+  left: 3.6rem;
+  top: 7.1rem;
+  width: 8rem;
+}
+
+.cover-illo-line.two {
+  left: 3.6rem;
+  top: 8rem;
+  width: 5.8rem;
+}
+
+.slide-illo {
+  position: absolute;
+  right: 3.1rem;
+  bottom: 2.1rem;
+  width: 12.5rem;
+  height: 8.4rem;
+  pointer-events: none;
+}
+
+.slide-illo.small {
+  width: 10.8rem;
+  height: 7.2rem;
+}
+
+.slide-illo.top {
+  top: 2.5rem;
+  bottom: auto;
+}
+
+.slide-illo .icon-primary,
+.slide-illo .icon-secondary,
+.slide-illo .icon-tertiary {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(14 159 154 / 0.18);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.92);
+  box-shadow: 0 14px 30px rgb(19 84 131 / 0.1);
+}
+
+.slide-illo .icon-primary {
+  left: 1.3rem;
+  top: 1.2rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  color: #0e9f9a;
+  font-size: 3.25rem;
+}
+
+.slide-illo .icon-secondary {
+  right: 1.2rem;
+  top: 1rem;
+  width: 4rem;
+  height: 4rem;
+  color: #f3b33d;
+  font-size: 2.35rem;
+}
+
+.slide-illo .icon-tertiary {
+  right: 2.7rem;
+  bottom: 0.85rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  color: #135483;
+  font-size: 1.9rem;
+}
+
+.slide-illo-line.one {
+  left: 2.2rem;
+  bottom: 1.35rem;
+  width: 4.4rem;
+}
+
+.slide-illo-line.two {
+  left: 2.2rem;
+  bottom: 0.75rem;
+  width: 3rem;
+  background: rgb(243 179 61 / 0.28);
+}
+
 .slidev-layout h1 {
   color: #0e9f9a;
   font-weight: 700;
@@ -71,11 +242,102 @@ body,
   box-shadow: 0 14px 36px rgb(19 84 131 / 0.1);
 }
 
+.slidev-layout .mermaid {
+  overflow: visible !important;
+  margin: 0.75rem 0;
+  border: 1px solid rgb(14 159 154 / 0.16);
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  background:
+    radial-gradient(circle at 12% 12%, rgb(243 179 61 / 0.12), transparent 24%),
+    linear-gradient(135deg, rgb(14 159 154 / 0.05), rgb(255 255 255 / 0.9));
+  box-shadow: 0 10px 24px rgb(19 84 131 / 0.07);
+}
+
+.slidev-layout .mermaid svg {
+  display: block;
+  width: calc(100% - 0.5rem);
+  max-width: calc(100% - 0.5rem);
+  max-height: none !important;
+  height: auto !important;
+  margin: 0 auto;
+  overflow: visible !important;
+}
+
+.slidev-layout .mermaid *,
+.slidev-layout .mermaid svg *,
+.slidev-layout .mermaid g,
+.slidev-layout .mermaid text,
+.slidev-layout .mermaid tspan,
+.slidev-layout .mermaid foreignObject,
+.slidev-layout .mermaid foreignObject *,
+.slidev-layout .mermaid .label,
+.slidev-layout .mermaid .label * {
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+.slidev-layout .mermaid foreignObject,
+.slidev-layout .mermaid .label {
+  overflow: visible !important;
+}
+
+.slidev-layout .mermaid .label div,
+.slidev-layout .mermaid .label span {
+  line-height: 1.25;
+}
+
+.slidev-layout .mermaid .node rect,
+.slidev-layout .mermaid .node polygon,
+.slidev-layout .mermaid .node path {
+  filter: drop-shadow(0 5px 7px rgb(19 84 131 / 0.07));
+}
+
+.slidev-layout .mermaid .edgePath path {
+  stroke-linecap: round;
+}
+
+.slidev-layout .mermaid .actor {
+  filter: drop-shadow(0 8px 10px rgb(19 84 131 / 0.08));
+}
+
 .slidev-layout .grid > .rounded,
 .slidev-layout .grid > div:not([class*="col-span"]) {
   border-color: rgb(14 159 154 / 0.18);
   background: rgb(255 255 255 / 0.64);
   box-shadow: 0 12px 30px rgb(19 84 131 / 0.07);
+}
+
+.slidev-layout .env-grid > div {
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+}
+
+.slidev-layout .env-grid h3 {
+  margin: 0 0 0.35rem;
+  padding-top: 0;
+  font-size: 0.74rem;
+  line-height: 1.2;
+}
+
+.slidev-layout .env-grid ul {
+  margin: 0;
+}
+
+.slidev-layout .env-grid li {
+  margin-left: 1rem;
+  line-height: 1.55;
+}
+
+.slidev-layout .env-grid pre {
+  margin: 0.25rem 0 0;
+  box-shadow: none;
+}
+
+.slidev-layout .env-divider {
+  height: 1px;
+  margin: 0.7rem 0;
+  background: linear-gradient(90deg, rgb(14 159 154 / 0.18), transparent);
 }
 
 .dark .slidev-layout .grid > .rounded,

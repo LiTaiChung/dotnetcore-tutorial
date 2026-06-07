@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-labelledby="title desc">
+  <title id="title">Developer learning dotnet</title>
+  <desc id="desc">A flat illustration of a developer using a laptop with API and cloud panels.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e8fbf8"/>
+      <stop offset="1" stop-color="#fff6dc"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="420" fill="#fff"/>
+  <ellipse cx="262" cy="354" rx="184" ry="28" fill="#e4f4f2"/>
+  <circle cx="92" cy="72" r="34" fill="#fff0bd"/>
+  <circle cx="448" cy="92" r="42" fill="#d9f4f1"/>
+  <rect x="60" y="92" width="168" height="104" rx="22" fill="url(#panel)" stroke="#8bd8d1" stroke-width="3"/>
+  <rect x="78" y="120" width="78" height="10" rx="5" fill="#009286"/>
+  <rect x="78" y="146" width="120" height="10" rx="5" fill="#f4bd36"/>
+  <rect x="78" y="170" width="96" height="10" rx="5" fill="#80cbc4"/>
+  <rect x="310" y="64" width="142" height="112" rx="24" fill="#f6fffe" stroke="#8bd8d1" stroke-width="3"/>
+  <path d="M356 126h62" stroke="#009286" stroke-width="10" stroke-linecap="round"/>
+  <path d="M386 96v62" stroke="#f4bd36" stroke-width="10" stroke-linecap="round"/>
+  <path d="M354 252c-16-18-13-48 8-61 17-10 38-3 47 14 23-4 45 14 45 38 0 25-20 42-45 42h-92c-26 0-47-19-47-43 0-19 13-35 31-40 6 18 23 31 43 31 4 0 7 0 10-1z" fill="#dff7f4" stroke="#009286" stroke-width="3"/>
+  <path d="M180 342h162l-18-104H198z" fill="#20455f"/>
+  <path d="M199 254h124l11 70H188z" fill="#2c5f7e"/>
+  <rect x="154" y="324" width="214" height="22" rx="11" fill="#16354b"/>
+  <circle cx="262" cy="288" r="17" fill="#f4bd36"/>
+  <path d="M164 231c15-34 61-40 84-12 18-18 52-17 69 3 17 19 15 48-3 66H176c-20-11-24-37-12-57z" fill="#ffffff" stroke="#8bd8d1" stroke-width="3"/>
+  <path d="M211 260h86" stroke="#009286" stroke-width="8" stroke-linecap="round"/>
+  <path d="M234 239h40" stroke="#f4bd36" stroke-width="8" stroke-linecap="round"/>
+</svg>

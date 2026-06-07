@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-labelledby="title desc">
+  <title id="title">Code console</title>
+  <desc id="desc">A flat illustration of code, terminal output, and a small developer character.</desc>
+  <rect width="520" height="420" fill="#fff"/>
+  <ellipse cx="270" cy="350" rx="168" ry="26" fill="#e4f4f2"/>
+  <rect x="86" y="86" width="292" height="210" rx="24" fill="#16354b"/>
+  <circle cx="120" cy="118" r="7" fill="#f4bd36"/>
+  <circle cx="144" cy="118" r="7" fill="#80cbc4"/>
+  <circle cx="168" cy="118" r="7" fill="#fff"/>
+  <path d="M126 164l-24 24 24 24" fill="none" stroke="#80cbc4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M220 164l24 24-24 24" fill="none" stroke="#80cbc4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M188 156l-26 64" stroke="#f4bd36" stroke-width="10" stroke-linecap="round"/>
+  <rect x="272" y="160" width="68" height="10" rx="5" fill="#dff7f4"/>
+  <rect x="272" y="190" width="84" height="10" rx="5" fill="#f4bd36"/>
+  <rect x="272" y="220" width="50" height="10" rx="5" fill="#80cbc4"/>
+  <circle cx="392" cy="258" r="38" fill="#fff0bd"/>
+  <path d="M382 258h24M394 246v24" stroke="#009286" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="417" cy="126" r="34" fill="#d9f4f1"/>
+</svg>
