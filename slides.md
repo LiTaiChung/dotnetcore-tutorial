@@ -160,8 +160,10 @@ image: /illustrations/tools-setup.svg
 ### 建議安裝
 
 - .NET Install Tool
+- Material Icon Theme
 - NuGet Package Manager
 - REST Client 或 Thunder Client
+- vscode-solution-explorer
 
 </div>
 <div>
@@ -172,6 +174,7 @@ image: /illustrations/tools-setup.svg
 dotnet --version
 dotnet --info
 code --version
+dotnet dev-certs https -t
 ```
 
 <div class="env-divider"></div>
@@ -181,6 +184,7 @@ code --version
 - SDK: 建立與編譯專案
 - Runtime: 執行已編譯的 App
 - Target Framework: 專案目標，例如 `net9.0`
+- HTTPS Dev Cert: 本機開發用憑證，第一次跑 Web API 前可先信任
 
 </div>
 </div>
@@ -205,13 +209,17 @@ image: /illustrations/tools-setup.svg
 2. 左側 Extensions
 3. 搜尋並安裝 `.NET Core EditorConfig Generator`
 4. 搜尋並安裝 `.NET Core Extension Pack`
-5. 重新載入 VS Code
+5. 搜尋並安裝 `Material Icon Theme`
+6. 搜尋並安裝 `vscode-solution-explorer`
+7. 重新載入 VS Code
 
 <div class="mt-8">
 
 ```txt
 .NET Core EditorConfig Generator 可快速產生 C# 專案用的 .editorconfig。
 .NET Core Extension Pack 會一次補齊常用的 .NET 開發工具。
+Material Icon Theme 讓 Solution Explorer 的檔案與資料夾更好辨識。
+vscode-solution-explorer 提供接近 Visual Studio 的 Solution 管理體驗。
 ```
 
 </div>
@@ -498,7 +506,7 @@ dotnet run
 ```
 
 <div class="mt-6 text-sm opacity-75">
-第一次執行 HTTPS 專案時，可能需要信任開發憑證。
+第一次執行 HTTPS 專案時，可能需要用 `dotnet dev-certs https -t` 信任開發憑證。
 </div>
 
 ---
@@ -638,8 +646,129 @@ if (app.Environment.IsDevelopment())
 <v-clicks>
 
 - 開啟 `http://localhost:{port}/openapi/v1.json`
+- OpenAPI 是機器可讀的 API 規格文件
 - 可搭配 Swagger UI、Scalar 或 REST Client 測試
 - API 文件讓前後端更容易對齊
+
+</v-clicks>
+
+---
+layout: dynamic-image
+left: false
+image: /illustrations/web-api.svg
+---
+
+# 用 Swagger UI 測試
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="browser" /></div>
+  <div class="icon-secondary"><light-icon icon="file-code" /></div>
+  <div class="icon-tertiary"><light-icon icon="send" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```bash
+dotnet add package Swashbuckle.AspNetCore.SwaggerUI
+```
+
+```csharp [Program.cs] {all|1|5-12|8-11|all}
+builder.Services.AddOpenApi();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "v1");
+    });
+}
+
+app.Run();
+```
+
+<div class="mt-4 text-sm opacity-75">
+啟動後開啟 `https://localhost:{port}/swagger`。Swagger UI、ReDoc、Scalar 這類互動文件建議只在 Development 啟用。
+</div>
+
+---
+layout: dynamic-image
+left: false
+image: /illustrations/web-api.svg
+---
+
+# 用 Scalar 測試
+
+<div class="slide-illo">
+  <div class="icon-primary"><light-icon icon="book" /></div>
+  <div class="icon-secondary"><light-icon icon="file-code" /></div>
+  <div class="icon-tertiary"><light-icon icon="send" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```bash
+dotnet add package Scalar.AspNetCore
+```
+
+```csharp [Program.cs] {all|1|7-11|10|all}
+using Scalar.AspNetCore;
+
+builder.Services.AddOpenApi();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.MapScalarApiReference();
+}
+
+app.Run();
+```
+
+<div class="mt-4 text-sm opacity-75">
+啟動後開啟 `https://localhost:{port}/scalar`。Scalar 會讀取 ASP.NET Core 產生的 OpenAPI 文件，提供互動式 API 文件頁面。
+</div>
+
+---
+layout: dynamic-image
+left: false
+image: /illustrations/web-api.svg
+---
+
+# 自動開啟 API 文件頁
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="settings" /></div>
+  <div class="icon-secondary"><light-icon icon="browser-check" /></div>
+  <div class="icon-tertiary"><light-icon icon="rocket" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+```json [Properties/launchSettings.json] {all|7-8|all}
+{
+  "profiles": {
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7000;http://localhost:5000",
+      "launchBrowser": true,
+      "launchUrl": "swagger"
+    }
+  }
+}
+```
+
+<v-clicks>
+
+- `launchBrowser: true` 讓 Debug / Run 時自動開瀏覽器
+- `launchUrl: "swagger"` 會直接進入 Swagger UI
+- 想預設開 Scalar 時，改成 `launchUrl: "scalar"`
+- OpenAPI JSON 仍在 `/openapi/v1.json`
 
 </v-clicks>
 
@@ -673,6 +802,98 @@ app.MapPost("/todos", (CreateTodoRequest request) =>
     return Results.Created($"/todos/{todo.Id}", todo);
 });
 ```
+
+---
+layout: dynamic-image
+left: false
+image: /illustrations/code-console.svg
+---
+
+# VS Code 啟動設定
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="file-code" /></div>
+  <div class="icon-secondary"><light-icon icon="player-play" /></div>
+  <div class="icon-tertiary"><light-icon icon="terminal" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+<div class="grid grid-cols-2 gap-5 text-xs">
+<div>
+
+### `.vscode/launch.json`
+
+```json
+{
+  "configurations": [
+    {
+      "name": ".NET Core Launch",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/bin/Debug/net9.0/TodoApi.dll"
+    }
+  ]
+}
+```
+
+</div>
+<div>
+
+### `.vscode/tasks.json`
+
+```json
+{
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/TodoApi.csproj"]
+    }
+  ]
+}
+```
+
+</div>
+</div>
+
+<div class="mt-4 text-sm opacity-75">
+`launch.json` 決定怎麼啟動與 Debug；`tasks.json` 定義啟動前要先執行的建置、測試或其他 CLI 工作。
+</div>
+
+---
+layout: dynamic-image
+left: false
+image: /illustrations/code-console.svg
+---
+
+# 沒跳出建立提示怎麼辦
+
+<div class="slide-illo top small">
+  <div class="icon-primary"><light-icon icon="alert-circle" /></div>
+  <div class="icon-secondary"><light-icon icon="settings-code" /></div>
+  <div class="icon-tertiary"><light-icon icon="folder-cog" /></div>
+  <div class="slide-illo-line one"></div>
+  <div class="slide-illo-line two"></div>
+</div>
+
+<v-clicks>
+
+1. 確認 C# Dev Kit 已啟用，並且 `dotnet --info` 找得到 .NET 10 SDK
+2. 確認 VS Code 開的是 `.sln` 所在資料夾或專案根目錄
+3. 先按 `F5`，選 `C#: Launch Startup Project`
+4. C# Dev Kit 會優先從專案與 `Properties/launchSettings.json` 推斷 Debug 設定
+5. 如果仍沒有提示，Command Palette 執行 `.NET: Generate Assets for Build and Debug`
+6. VS Code 會建立 `.vscode/launch.json` 與 `.vscode/tasks.json`
+7. 若產生失敗，再手動建立兩個檔案並確認 `preLaunchTask` 對上 `tasks.json` 的 `label`
+
+</v-clicks>
+
+<div class="mt-6 text-sm opacity-75">
+.NET 10 專案優先使用 C# Dev Kit 的自動推斷；需要客製化流程時，再產生或手寫 `.vscode` 設定。
+</div>
 
 ---
 layout: dynamic-image
@@ -964,7 +1185,7 @@ image: /illustrations/tools-setup.svg
 
 | 狀況 | 檢查 |
 | --- | --- |
-| VS Code 沒有提示 | C# Dev Kit 是否啟用、SDK 是否安裝 |
+| VS Code 沒有提示 | 手動建立 `.vscode/launch.json`、`.vscode/tasks.json` |
 | `dotnet` 找不到 | PATH 是否包含 .NET SDK |
 | `net9.0` 不支援 | `dotnet --list-sdks` 是否有 9.x |
 | HTTPS 失敗 | 開發憑證是否信任 |
