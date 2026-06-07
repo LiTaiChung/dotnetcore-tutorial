@@ -203,15 +203,15 @@ image: /illustrations/tools-setup.svg
 
 1. 開啟 VS Code
 2. 左側 Extensions
-3. 搜尋 `C# Dev Kit`
-4. 安裝 Microsoft 發行的套件
+3. 搜尋並安裝 `.NET Core EditorConfig Generator`
+4. 搜尋並安裝 `.NET Core Extension Pack`
 5. 重新載入 VS Code
 
 <div class="mt-8">
 
 ```txt
-C# Dev Kit 會搭配 C# extension，
-提供 Solution Explorer、Project Templates、測試探索、Debug 等功能。
+.NET Core EditorConfig Generator 可快速產生 C# 專案用的 .editorconfig。
+.NET Core Extension Pack 會一次補齊常用的 .NET 開發工具。
 ```
 
 </div>
