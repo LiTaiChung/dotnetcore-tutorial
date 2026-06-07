@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slidev"
+  short_description: "Create developer presentations with Slidev"
+  default_prompt: "Use $slidev to create a technical Slidev presentation with code examples."
